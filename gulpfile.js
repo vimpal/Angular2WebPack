@@ -19,7 +19,7 @@ gulp.task('compile', ['resources'], function () {
 });
 
 gulp.task('resources', ['clean'], function() {
-  return gulp.src(['src/app/**/*', 'index.html', '!app/**/*.ts'], { base : './' })
+  return gulp.src(['app/**/*', 'index.html', '!app/**/*.ts'], { base : './src' })
     .pipe(gulp.dest('dist'))
 });
 
