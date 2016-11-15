@@ -13,4 +13,11 @@ gulp.task('clean', function () {
   return del('dist/**/*');
 });
 
-gulp.task('default', ['clean']);
+gulp.task('compile', ['clean'], function () {
+  return gulp
+    .src('app/**/*.ts')
+    .pipe(typescript(tscConfig.compilerOptions))
+    .pipe(gulp.dest('dist/app'));
+});
+
+gulp.task('default', ['compile']);
