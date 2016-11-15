@@ -18,9 +18,9 @@ gulp.task('compile', ['clean'], function () {
     .pipe(gulp.dest('dist/app'));
 });
 
-gulp.task('resources', ['compile'], function() {
-  return gulp.src(['src/app/**/*', '!app/**/*.ts'], { base : './' })
-    .pipe(gulp.dest('dist/app'))
+gulp.task("resources", () => {
+    return gulp.src(["src/**/*", "!**/*.ts"])
+        .pipe(gulp.dest("dist"));
 });
 
 gulp.task('default', ['resources']);
