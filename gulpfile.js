@@ -11,15 +11,15 @@ gulp.task('clean', function () {
   return del('dist/**/*');
 });
 
-gulp.task('compile', ['copy:assets'], function () {
+gulp.task('compile', ['resources'], function () {
   return gulp
     .src('src/app/**/*.ts')
     .pipe(typescript(tscConfig.compilerOptions))
     .pipe(gulp.dest('dist/app'));
 });
 
-gulp.task('copy:assets', ['clean'], function() {
-  return gulp.src(['app/**/*', 'index.html', 'styles.css', '!app/**/*.ts'], { base : './' })
+gulp.task('resources', ['clean'], function() {
+  return gulp.src(['src/app/**/*', 'index.html', '!app/**/*.ts'], { base : './' })
     .pipe(gulp.dest('dist'))
 });
 
