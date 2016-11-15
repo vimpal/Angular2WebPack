@@ -11,16 +11,16 @@ gulp.task('clean', function () {
   return del('dist/**/*');
 });
 
-gulp.task('compile', ['resources'], function () {
+gulp.task('compile', ['clean'], function () {
   return gulp
     .src('src/app/**/*.ts')
     .pipe(typescript(tscConfig.compilerOptions))
     .pipe(gulp.dest('dist/app'));
 });
 
-gulp.task('resources', ['clean'], function() {
+gulp.task('resources', ['compile'], function() {
   return gulp.src(['app/**/*', 'index.html', '!app/**/*.ts'], { base : './src' })
     .pipe(gulp.dest('dist'))
 });
 
-gulp.task('default', ['compile']);
+gulp.task('default', ['resources']);
