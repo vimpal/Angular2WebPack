@@ -3,11 +3,9 @@
  */
 
 var gulp = require('gulp');
-var jasmine = require('gulp-jasmine');
-var join = require('path').join;
-var reporters   = require('jasmine-reporters');
 var typescript = require('gulp-typescript');
 const del = require('del');
+const tscConfig = require('./tsconfig.json');
 
 gulp.task('clean', function () {
   return del('dist/**/*');
